@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Atharva Janjire | Marketing · Sales · Business Development</title>
+<meta name="description" content="International Agribusiness & Trade graduate bridging agri-markets, supply chains, and strategic growth — marketing, sales, and business development, based in the Netherlands." />
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     Palette: warm ivory paper, deep teal-green structure (agri/trade),
+     vibrant terracotta accent. Vibrant + professional, not black.
+     Type: Times New Roman serif throughout, by request.
+     ============================================================ */
+  :root{
+    --paper:#FBF7EF;
+    --paper-2:#F3ECDC;
+    --ink:#20302B;
+    --ink-soft:#5E5B4E;
+    --teal:#1C6B5A;
+    --teal-deep:#10463A;
+    --terra:#DC5A2B;
+    --terra-soft:#F0A079;
+    --gold:#C9912F;
+    --line:rgba(32,48,43,.16);
+    --serif:"Times New Roman", Times, Georgia, serif;
+    --maxw:1140px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--serif);background:var(--paper);color:var(--ink);line-height:1.6;font-size:18px;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  .eyebrow{font-style:italic;font-size:1.05rem;color:var(--terra);margin:0 0 .6rem;}
+  .label{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
+  h1,h2,h3{font-weight:700;line-height:1.08;margin:0;}
+  h2.section-title{font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.01em;margin:.4rem 0 1.4rem;}
+  h2.section-title em{color:var(--teal);font-style:italic;}
+  p{margin:0 0 1rem;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .brand{font-size:1.4rem;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:.55rem;}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--terra);display:inline-block;}
+  .nav-links{display:flex;gap:1.5rem;font-size:.96rem;}
+  .nav-links a{color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--terra);}
+  .nav-cta{border:1.5px solid var(--ink);border-radius:40px;padding:.5rem 1.2rem;font-size:.95rem;transition:.2s;}
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+  .burger{display:none;background:none;border:0;cursor:pointer;font-size:1.6rem;color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:78px 0 70px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;}
+  .hello{display:inline-block;border:1px solid var(--line);border-radius:40px;padding:.3rem 1rem;font-style:italic;color:var(--teal);background:#fff;margin-bottom:1.3rem;font-size:1rem;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);letter-spacing:-.015em;margin-bottom:1.2rem;}
+  .hero h1 .accent{color:var(--terra);font-style:italic;}
+  .hero .lede{font-size:1.16rem;color:var(--ink-soft);max-width:34ch;margin-bottom:2rem;}
+  .btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.5rem;border-radius:40px;font-size:1.02rem;transition:transform .18s, box-shadow .2s, background .2s;}
+  .btn-primary{background:var(--terra);color:#fff;box-shadow:0 8px 22px rgba(220,90,43,.28);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(220,90,43,.36);}
+  .btn-ghost{border:1.5px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+
+  .hero-art{position:relative;background:var(--teal-deep);border-radius:22px;padding:30px;overflow:hidden;box-shadow:0 26px 60px rgba(16,70,58,.28);}
+  .hero-art .sky-glow{position:absolute;inset:0;background:radial-gradient(120% 80% at 78% 18%, rgba(220,90,43,.55), transparent 60%);}
+  .hero-art svg{position:relative;width:100%;height:auto;}
+  .hero-tag{position:absolute;right:18px;bottom:18px;z-index:2;background:var(--paper);border-radius:12px;padding:.7rem .95rem;font-size:.86rem;line-height:1.35;box-shadow:0 10px 24px rgba(0,0,0,.18);}
+  .hero-tag b{color:var(--teal);}
+
+  /* STRIP */
+  .strip{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:34px 0;}
+  .stat{text-align:center;}
+  .stat .num{font-size:1.5rem;font-weight:700;color:var(--teal);}
+  .stat .cap{font-size:.92rem;color:var(--ink-soft);}
+
+  section.block{padding:84px 0;}
+  .block-head{max-width:64ch;margin-bottom:2.6rem;}
+  .block-head p{color:var(--ink-soft);font-size:1.08rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center;}
+  .about-art{background:var(--teal);border-radius:20px;padding:26px;color:#fff;box-shadow:0 20px 46px rgba(28,107,90,.26);}
+  .about-art svg{width:100%;height:auto;}
+  .about-copy p{font-size:1.05rem;}
+  .about-facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:1.6rem;}
+  .fact .label{display:block;margin-bottom:.15rem;}
+  .fact .val{font-size:1.02rem;}
+
+  /* EXPERTISE */
+  .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .2s, box-shadow .2s, border-color .2s;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(32,48,43,.10);border-color:var(--terra-soft);}
+  .card .glyph{width:44px;height:44px;color:var(--teal);margin-bottom:14px;}
+  .card h3{font-size:1.24rem;margin-bottom:.5rem;}
+  .card p{font-size:.97rem;color:var(--ink-soft);margin:0 0 1rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .tag{font-size:.75rem;letter-spacing:.04em;background:var(--paper-2);border:1px solid var(--line);border-radius:30px;padding:.18rem .7rem;color:var(--ink-soft);}
+
+  /* EXPERIENCE (timeline) */
+  .exp-list{display:grid;gap:20px;}
+  .exp{display:grid;grid-template-columns:200px 1fr;gap:28px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;}
+  .exp .meta .role-co{font-weight:700;font-size:1.05rem;color:var(--teal);}
+  .exp .meta .place{font-size:.92rem;color:var(--ink-soft);}
+  .exp .meta .when{font-size:.82rem;letter-spacing:.06em;color:var(--terra);text-transform:uppercase;margin-top:.4rem;}
+  .exp h3{font-size:1.18rem;margin-bottom:.5rem;}
+  .exp p{font-size:.98rem;color:var(--ink-soft);margin:0;}
+
+  /* THESIS */
+  .thesis{background:var(--teal-deep);color:#fff;}
+  .thesis .section-title em{color:var(--terra-soft);}
+  .thesis-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:42px;align-items:center;}
+  .thesis .label{color:rgba(255,255,255,.6);}
+  .thesis h3{font-size:1.55rem;margin:.4rem 0 1rem;}
+  .thesis p{color:rgba(255,255,255,.82);}
+  .thesis ul{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:.6rem;}
+  .thesis li{padding-left:1.4rem;position:relative;color:rgba(255,255,255,.9);}
+  .thesis li:before{content:"▸";position:absolute;left:0;color:var(--terra-soft);}
+  .grade{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:30px;text-align:center;}
+  .grade .big{font-size:4rem;font-weight:700;color:var(--terra-soft);line-height:1;}
+  .grade .small{font-size:.95rem;color:rgba(255,255,255,.75);}
+
+  /* CONTACT */
+  .contact{background:var(--paper-2);border-top:1px solid var(--line);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;}
+  .contact-rows{display:grid;gap:14px;}
+  .crow{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;transition:transform .2s, box-shadow .2s;}
+  .crow:hover{transform:translateX(3px);box-shadow:0 10px 24px rgba(32,48,43,.08);}
+  .crow .ic{font-size:1.15rem;width:1.7rem;text-align:center;color:var(--terra);font-style:italic;font-weight:700;}
+  .crow .k{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+  .crow .v{font-size:1.02rem;}
+  .build-card{background:var(--teal);color:#fff;border-radius:18px;padding:30px;box-shadow:0 20px 46px rgba(28,107,90,.24);}
+  .build-card h3{font-size:1.6rem;margin-bottom:.9rem;}
+  .build-card p{color:rgba(255,255,255,.85);font-size:1.02rem;}
+  .status{display:inline-flex;align-items:center;gap:.5rem;font-size:.92rem;color:rgba(255,255,255,.9);margin:.6rem 0 1.4rem;}
+  .status .pulse{width:9px;height:9px;border-radius:50%;background:#9bf0cf;box-shadow:0 0 0 0 rgba(155,240,207,.6);animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(155,240,207,.55);}70%{box-shadow:0 0 0 12px rgba(155,240,207,0);}100%{box-shadow:0 0 0 0 rgba(155,240,207,0);}}
+  .build-card .btn-primary{background:var(--terra);margin-top:.4rem;}
+
+  footer.foot{background:var(--ink);color:rgba(255,255,255,.8);padding:30px 0;}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.92rem;}
+  .foot .brand{color:#fff;font-size:1.2rem;}
+  .foot .dot{width:10px;height:10px;border-radius:50%;background:var(--terra);display:inline-block;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:900px){
+    .hero-grid,.about-grid,.contact-grid,.thesis-grid{grid-template-columns:1fr;gap:38px;}
+    .grid-cards{grid-template-columns:repeat(2,1fr);}
+    .strip-grid{grid-template-columns:repeat(2,1fr);gap:28px 18px;}
+    .exp{grid-template-columns:1fr;gap:12px;}
+    .nav-links,.nav-cta{display:none;}
+    .burger{display:block;}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 28px;gap:1rem;}
+  }
+  @media(max-width:560px){
+    body{font-size:17px;}
+    .grid-cards{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+    .status .pulse{animation:none;}
+  }
+  :focus-visible{outline:2.5px solid var(--terra);outline-offset:3px;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Atharva Janjire</a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+    <button class="burger" id="burger" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="hello">International Agribusiness &amp; Trade Graduate</span>
+      <p class="eyebrow">Marketing · Sales · Business Development</p>
+      <h1>I'm <span class="accent">Atharva</span> Janjire.</h1>
+      <p class="lede">A data-driven graduate bridging agri-markets, supply chains, and strategic growth — based in the Netherlands.</p>
+      <div class="btns">
+        <a href="#experience" class="btn btn-primary">View Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Let's Connect</a>
+      </div>
+    </div>
+
+    <!-- HERO ILLUSTRATION: cargo ship + trade route (agri-trade) -->
+    <div class="hero-art reveal">
+      <div class="sky-glow"></div>
+      <svg viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cargo ship at a container port">
+        <g fill="none" stroke="#FBF7EF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 70 H150 M40 70 V250 M150 70 V250 M95 70 V40 H210 M210 40 V70"/>
+          <path d="M150 70 H260" stroke-dasharray="2 9"/>
+          <path d="M120 70 V120 H132 V70" stroke="#F0A079"/>
+          <rect x="116" y="120" width="20" height="16"/>
+          <rect x="30" y="232" width="56" height="22" fill="#DC5A2B" stroke="#DC5A2B"/>
+          <rect x="92" y="232" width="56" height="22"/>
+          <rect x="46" y="208" width="56" height="22" stroke="#F0A079"/>
+        </g>
+        <g stroke="#5fd1a8" stroke-width="2" fill="none" stroke-linecap="round" opacity=".85">
+          <path d="M250 300 q14 -8 28 0 t28 0 t28 0 t28 0 t28 0"/>
+          <path d="M250 285 q14 -8 28 0 t28 0 t28 0 t28 0 t28 0"/>
+        </g>
+        <g fill="none" stroke="#FBF7EF" stroke-width="2.6" stroke-linejoin="round">
+          <path d="M250 268 H440 L420 300 H272 Z" fill="#10463A"/>
+          <rect x="266" y="226" width="40" height="40" fill="#DC5A2B" stroke="#DC5A2B"/>
+          <rect x="310" y="218" width="40" height="48"/>
+          <rect x="354" y="226" width="40" height="40" fill="#C9912F" stroke="#C9912F"/>
+          <rect x="398" y="234" width="34" height="32"/>
+          <path d="M398 234 V200 H430 V234"/>
+          <line x1="406" y1="212" x2="422" y2="212"/>
+        </g>
+        <g stroke="#F0A079" stroke-width="2" fill="none" stroke-dasharray="3 7" opacity=".9">
+          <path d="M70 150 Q230 40 420 150"/>
+          <circle cx="70" cy="150" r="4" fill="#F0A079" stroke="none"/>
+          <circle cx="420" cy="150" r="4" fill="#F0A079" stroke="none"/>
+        </g>
+      </svg>
+      <div class="hero-tag">
+        <b>Agri · Trade · Growth</b><br>Hoofddorp, Netherlands
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP (honest credentials only) -->
+<div class="strip">
+  <div class="wrap strip-grid reveal">
+    <div class="stat"><div class="num">Dual Degree</div><div class="cap">India &amp; the Netherlands</div></div>
+    <div class="stat"><div class="num">Graduated 2025</div><div class="cap">Agri-Business &amp; Trade</div></div>
+    <div class="stat"><div class="num">Holland Scholarship</div><div class="cap">awarded 2023</div></div>
+    <div class="stat"><div class="num">Hoofddorp, NL</div><div class="cap">open to opportunities</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-art reveal">
+        <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trade route between India and the Netherlands">
+          <g fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.4">
+            <ellipse cx="180" cy="150" rx="150" ry="120"/>
+            <line x1="30" y1="150" x2="330" y2="150"/>
+            <path d="M180 30 Q120 150 180 270 M180 30 Q240 150 180 270"/>
+            <path d="M40 100 H320 M40 200 H320"/>
+          </g>
+          <path d="M120 110 Q180 60 250 175" fill="none" stroke="#F0A079" stroke-width="3" stroke-dasharray="4 8"/>
+          <circle cx="120" cy="110" r="7" fill="#fff"/>
+          <circle cx="250" cy="175" r="7" fill="#DC5A2B"/>
+          <text x="104" y="96" fill="#fff" font-family="Times New Roman, serif" font-size="13" font-style="italic">NL</text>
+          <text x="244" y="200" fill="#fff" font-family="Times New Roman, serif" font-size="13" font-style="italic">IN</text>
+          <g transform="translate(178,118) rotate(28)" stroke="#fff" stroke-width="2" fill="none" stroke-linejoin="round">
+            <path d="M-12 4 H12 L8 12 H-8 Z" fill="#10463A"/>
+            <rect x="-4" y="-6" width="8" height="10" fill="#DC5A2B" stroke="#DC5A2B"/>
+          </g>
+        </svg>
+      </div>
+      <div class="about-copy reveal">
+        <p class="label">Who I Am</p>
+        <h2 class="section-title">Agribusiness <em>strategist</em> &amp; trade graduate</h2>
+        <p>I'm an analytical, results-driven graduate in International Agri-Business &amp; Trade, with hands-on experience in business development, market analysis, and operations across India and the Netherlands. My work spans supply chain management, financial planning, stakeholder management, and go-to-market strategy.</p>
+        <p>I'm especially drawn to growth marketing, partnerships, and scaling data-driven business models — at the intersection of agriculture, technology, and international trade.</p>
+        <div class="about-facts">
+          <div class="fact"><span class="label">Degree</span><span class="val">Int'l Agri-Business &amp; Trade · Dual</span></div>
+          <div class="fact"><span class="label">Focus</span><span class="val">Marketing · BD · Consulting</span></div>
+          <div class="fact"><span class="label">Location</span><span class="val">Hoofddorp, Netherlands</span></div>
+          <div class="fact"><span class="label">Languages</span><span class="val">English · Hindi · Basic Dutch</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="block" id="expertise" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <p class="label">What I Bring</p>
+      <h2 class="section-title">Core <em>competencies</em></h2>
+      <p>Where I create value — leading with sales, marketing, and business development, grounded in trade and operations.</p>
+    </div>
+    <div class="grid-cards">
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11l3 3 3-3M5 8a3 3 0 0 1 6 0M13 8a3 3 0 0 1 6 0M4 19c0-2 2-3 4-3M16 16c2 0 4 1 4 3"/></svg>
+        <h3>Sales &amp; Business Development</h3>
+        <p>Identifying market opportunities, building partnerships, stakeholder engagement, and go-to-market strategy design.</p>
+        <div class="tags"><span class="tag">GTM Strategy</span><span class="tag">Partnerships</span><span class="tag">Negotiation</span></div>
+      </div>
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l13-6v14L3 13zM3 11v2M16 9a3 3 0 0 1 0 6"/></svg>
+        <h3>Marketing &amp; Growth</h3>
+        <p>Inbound and growth marketing, positioning, and data-driven storytelling that turns attention into demand.</p>
+        <div class="tags"><span class="tag">Inbound</span><span class="tag">Positioning</span><span class="tag">Content</span></div>
+      </div>
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 16l4-5 4 3 6-8"/><path d="M19 6h-3M19 6v3"/></svg>
+        <h3>Market Research &amp; Analysis</h3>
+        <p>Commodity price analysis, trade-flow mapping, competitive intelligence, and demand–supply forecasting.</p>
+        <div class="tags"><span class="tag">FAOSTAT</span><span class="tag">COMTRADE</span><span class="tag">Power BI</span></div>
+      </div>
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-3 4 3 4-5 5 4M3 7h18M3 21h18"/></svg>
+        <h3>Operations &amp; Supply Chain</h3>
+        <p>End-to-end supply chain coordination, logistics planning, bottleneck analysis, and KPI tracking.</p>
+        <div class="tags"><span class="tag">Logistics</span><span class="tag">KPI Tracking</span><span class="tag">SAP ERP</span></div>
+      </div>
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 14a2.5 2 0 0 0 5 0c0-2.5-5-1.5-5-4a2.5 2 0 0 1 5 0"/></svg>
+        <h3>Revenue &amp; Financial Planning</h3>
+        <p>Revenue model design, cost analysis, financial forecasting, and recommendations for scalability.</p>
+        <div class="tags"><span class="tag">Revenue Models</span><span class="tag">Forecasting</span><span class="tag">Excel</span></div>
+      </div>
+      <div class="card reveal">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        <h3>International Trade &amp; Agri-Policy</h3>
+        <p>Incoterms, trade documentation, WTO frameworks, EU agricultural policy, and sustainable sourcing.</p>
+        <div class="tags"><span class="tag">Incoterms</span><span class="tag">WTO</span><span class="tag">EU CAP</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <p class="label">Hands-On Work</p>
+      <h2 class="section-title">Professional <em>experience</em></h2>
+      <p>Internships, freelance work, and university projects across India, the Netherlands, and Japan.</p>
+    </div>
+    <div class="exp-list">
+      <div class="exp reveal">
+        <div class="meta">
+          <div class="role-co">Operations &amp; Supply Chain Intern</div>
+          <div class="place">Sula Vineyards · India</div>
+          <div class="when">Feb – Jun 2023</div>
+        </div>
+        <div>
+          <h3>Mapping a national distribution network</h3>
+          <p>Mapped and analysed the end-to-end supply chain of India's largest wine producer across domestic and export routes. Shadowed transport, loading, permits, and excise teams to identify real bottlenecks, then turned frontline insight into practical, boardroom-ready recommendations.</p>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="meta">
+          <div class="role-co">International Business Intern</div>
+          <div class="place">Gravity Gardens · Arnhem, NL</div>
+          <div class="when">2024</div>
+        </div>
+        <div>
+          <h3>Market scouting for an agri-tech startup</h3>
+          <p>Led international market scouting for a Dutch agri-tech startup working on hyper-gravity seed priming and molecular farming. Researched target segments, engaged stakeholders and experts, tracked emerging trends, and presented data analysis weekly to feed into the company's R&amp;D direction.</p>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="meta">
+          <div class="role-co">Graduation Thesis</div>
+          <div class="place">Gravity Gardens · Arnhem, NL</div>
+          <div class="when">Mar – Jul 2025</div>
+        </div>
+        <div>
+          <h3>Revenue model design</h3>
+          <p>Commissioned by the co-founder to design a scalable, future-proof revenue model. Interviewed experts across seed companies and agri-tech firms, applied the ISADA market-selection framework, and proposed a hybrid model combining equipment sales, subscriptions, and performance pricing.</p>
+        </div>
+      </div>
+
+      <div class="exp reveal">
+        <div class="meta">
+          <div class="role-co">Freelance GTM &amp; Digital Strategy</div>
+          <div class="place">Sun Soil Soul · Japan / NL</div>
+          <div class="when">Freelance</div>
+        </div>
+        <div>
+          <h3>Reaching a global market with dignity</h3>
+          <p>Reinvented the go-to-market and pricing strategy for a Japanese community farm supporting specially-abled people. Built a new e-commerce store with transparent product storytelling, used AI tools to bridge the Japanese–English language gap, and launched a Japan–Netherlands gateway connecting similar communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="block thesis" id="thesis">
+  <div class="wrap">
+    <div class="thesis-grid">
+      <div class="reveal">
+        <p class="label">Featured Project · 2025</p>
+        <h3>Identifying a Revenue Model for Gravity Gardens to Ensure Financial Stability</h3>
+        <p>A strategic research project building a viable revenue model for a Dutch agri-tech startup specialising in hyper-gravity seed priming and molecular farming. It combined the ISADA market-selection framework, thematic analysis, and the Revenue Model Canvas to recommend a hybrid monetisation strategy aligned with EU seed companies.</p>
+        <ul>
+          <li>Expert interviews across seed companies, agri-tech firms, and molecular farming.</li>
+          <li>ISADA framework applied to identify EU seed companies as the optimal segment.</li>
+          <li>Hybrid revenue model: equipment sales, subscriptions, and performance pricing.</li>
+          <li>Mapped the solution to SDGs 2, 9, 12, 13, and 17.</li>
+          <li>Commissioner: Robin Le Vigouroux, COO, Gravity Gardens.</li>
+        </ul>
+        <a href="https://atharvajanjire.github.io/Final_thesis_report.pdf" class="btn btn-primary" style="background:var(--terra);">Read the full thesis →</a>
+      </div>
+      <div class="grade reveal">
+        <div class="big">8</div>
+        <div class="small">final thesis grade<br>out of 10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <p class="label">Let's Connect</p>
+      <h2 class="section-title">Get in <em>touch</em></h2>
+      <p>Open to graduate, internship, and full-time roles in business development, marketing, sales, and agribusiness strategy across the Netherlands and globally.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-rows reveal">
+        <a class="crow" href="mailto:atharvajanjire19@gmail.com">
+          <span class="ic">✉</span><span><span class="k">Email</span><br><span class="v">atharvajanjire19@gmail.com</span></span>
+        </a>
+        <a class="crow" href="https://www.linkedin.com/in/atharva-janjire">
+          <span class="ic">in</span><span><span class="k">LinkedIn</span><br><span class="v">linkedin.com/in/atharva-janjire</span></span>
+        </a>
+        <a class="crow" href="tel:+31647169433">
+          <span class="ic">☏</span><span><span class="k">Phone / WhatsApp</span><br><span class="v">+31 647 169 433</span></span>
+        </a>
+        <a class="crow" href="#">
+          <span class="ic">◎</span><span><span class="k">Location</span><br><span class="v">Hoofddorp, Netherlands</span></span>
+        </a>
+      </div>
+
+      <div class="build-card reveal">
+        <h3>Let's build something meaningful</h3>
+        <div class="status"><span class="pulse"></span> Available for opportunities</div>
+        <p>Whether it's a role, a project, or a conversation about agribusiness, trade, or sustainable innovation — the fastest way to reach me is by email or LinkedIn, and I usually reply within 24 hours.</p>
+        <a href="mailto:atharvajanjire19@gmail.com" class="btn btn-primary">Send me an email →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <span class="brand"><span class="dot"></span> Atharva Janjire</span>
+    <span>© 2026 Atharva Janjire · International Agribusiness &amp; Trade · Hoofddorp, Netherlands</span>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navlinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
